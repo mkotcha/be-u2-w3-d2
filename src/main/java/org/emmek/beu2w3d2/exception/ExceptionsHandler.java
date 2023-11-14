@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import java.nio.file.AccessDeniedException;
 import java.util.Date;
 import java.util.List;
 
@@ -52,4 +53,9 @@ public class ExceptionsHandler {
         return new ErrorPayload("Server Error: NERV!", new Date());
     }
 
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN) // 403
+    public ErrorPayload handleAccessDenied(AccessDeniedException e) {
+        return new ErrorPayload(e.getMessage(), new Date());
+    }
 }
