@@ -4,9 +4,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import org.emmek.beu2w3d2.config.EmailSender;
 import org.emmek.beu2w3d2.entities.User;
-import org.emmek.beu2w3d2.exception.BadRequestException;
 import org.emmek.beu2w3d2.exception.NotFoundException;
-import org.emmek.beu2w3d2.payloads.UserPostDTO;
 import org.emmek.beu2w3d2.payloads.UserPutDTO;
 import org.emmek.beu2w3d2.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,23 +26,6 @@ public class UserService {
 
     @Autowired
     private EmailSender emailSender;
-
-    public User save(UserPostDTO body) throws IOException {
-        userRepository.findByUsername(body.username()).ifPresent(a -> {
-            throw new BadRequestException("Username " + a.getUsername() + " already exists");
-        });
-        userRepository.findByEmail(body.email()).ifPresent(a -> {
-            throw new BadRequestException("User with email " + a.getEmail() + " already exists");
-        });
-        User user = new User();
-        user.setUsername(body.username());
-        user.setName(body.name());
-        user.setSurname(body.surname());
-        user.setEmail(body.email());
-        User savedUser = userRepository.save(user);
-        emailSender.sendRegistrationEmail(savedUser);
-        return savedUser;
-    }
 
     public Page<User> getUsers(int page, int size, String sort) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(sort));

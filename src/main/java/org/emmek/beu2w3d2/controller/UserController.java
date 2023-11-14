@@ -3,7 +3,6 @@ package org.emmek.beu2w3d2.controller;
 import org.emmek.beu2w3d2.entities.User;
 import org.emmek.beu2w3d2.exception.BadRequestException;
 import org.emmek.beu2w3d2.exception.NotFoundException;
-import org.emmek.beu2w3d2.payloads.UserPostDTO;
 import org.emmek.beu2w3d2.payloads.UserPutDTO;
 import org.emmek.beu2w3d2.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,20 +53,20 @@ public class UserController {
         userService.findByIdAndDelete(currentUser.getId());
     }
 
-    @PostMapping("")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @ResponseStatus(HttpStatus.CREATED)
-    public User postUsers(@RequestBody @Validated UserPostDTO body, BindingResult validation) {
-        if (validation.hasErrors()) {
-            throw new BadRequestException(validation.getAllErrors());
-        } else {
-            try {
-                return userService.save(body);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+//    @PostMapping("")
+//    @PreAuthorize("hasAuthority('ADMIN')")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public User postUsers(@RequestBody @Validated UserPostDTO body, BindingResult validation) {
+//        if (validation.hasErrors()) {
+//            throw new BadRequestException(validation.getAllErrors());
+//        } else {
+//            try {
+//                return userService.save(body);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//    }
 
     @PostMapping("/{id}/avatar")
     @PreAuthorize("hasAuthority('ADMIN')")
