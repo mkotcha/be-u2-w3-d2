@@ -1,0 +1,36 @@
+2023-11-14T11:09:31.272+01:00  INFO 83307 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Starting U5d12Application using Java 20.0.2 with PID 83307 (/home/kutch/IdeaProjects/be-u2-w3-d2/target/classes started by kutch in /home/kutch/IdeaProjects/be-u2-w3-d2)
+2023-11-14T11:09:31.273+01:00 DEBUG 83307 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Running with Spring Boot v3.1.5, Spring v6.0.13
+2023-11-14T11:09:31.274+01:00  INFO 83307 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : The following 1 profile is active: "dev"
+2023-11-14T11:09:35.599+01:00 DEBUG 83307 --- [restartedMain] o.emmek.beu2w3d2.security.JWTAuthFilter  : Filter 'JWTAuthFilter' configured for use
+2023-11-14T11:09:36.262+01:00  WARN 83307 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14T11:09:36.288+01:00  WARN 83307 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: f883954e-9962-4ccf-a1bf-0723f4dcb10b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-11-14T11:09:37.017+01:00  INFO 83307 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Started U5d12Application in 6.39 seconds (process running for 7.095)
+2023-11-14T11:10:27.135+01:00  INFO 83946 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Starting U5d12Application using Java 17.0.8 with PID 83946 (/home/kutch/IdeaProjects/be-u2-w3-d2/target/classes started by kutch in /home/kutch/IdeaProjects/be-u2-w3-d2)
+2023-11-14T11:10:27.138+01:00 DEBUG 83946 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Running with Spring Boot v3.1.5, Spring v6.0.13
+2023-11-14T11:10:27.139+01:00  INFO 83946 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : The following 1 profile is active: "dev"
+2023-11-14T11:10:32.588+01:00 DEBUG 83946 --- [restartedMain] o.emmek.beu2w3d2.security.JWTAuthFilter  : Filter 'JWTAuthFilter' configured for use
+2023-11-14T11:10:33.335+01:00  WARN 83946 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14T11:10:33.400+01:00  WARN 83946 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 62a92c83-fc2a-42b5-a1e8-322b25839ef4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-11-14T11:10:34.127+01:00  INFO 83946 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Started U5d12Application in 7.645 seconds (process running for 8.803)
+2023-11-14T11:10:46.093+01:00  INFO 84358 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Starting U5d12Application using Java 17.0.8 with PID 84358 (/home/kutch/IdeaProjects/be-u2-w3-d2/target/classes started by kutch in /home/kutch/IdeaProjects/be-u2-w3-d2)
+2023-11-14T11:10:46.096+01:00 DEBUG 84358 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Running with Spring Boot v3.1.5, Spring v6.0.13
+2023-11-14T11:10:46.097+01:00  INFO 84358 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : The following 1 profile is active: "dev"
+2023-11-14T11:10:51.013+01:00 DEBUG 84358 --- [restartedMain] o.emmek.beu2w3d2.security.JWTAuthFilter  : Filter 'JWTAuthFilter' configured for use
+2023-11-14T11:10:51.586+01:00  WARN 84358 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14T11:10:51.610+01:00  WARN 84358 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5a09e7ab-102d-4d20-ada0-c9a25d330b31
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-11-14T11:10:52.298+01:00  INFO 84358 --- [restartedMain] org.emmek.beu2w3d2.U5d12Application      : Started U5d12Application in 6.841 seconds (process running for 7.574)
