@@ -9,6 +9,9 @@ import org.emmek.beu2w3d2.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +33,29 @@ public class UserController {
         return userService.getUsers(page, size, sort);
     }
 
+    @GetMapping("/me")
+    public UserDetails getProfile(@AuthenticationPrincipal UserDetails currentUser) {
+        return currentUser;
+    }
+
+    @PutMapping("/me")
+    public UserDetails getProfile(@AuthenticationPrincipal User currentUser, @RequestBody UserPutDTO body) {
+        return userService.findByIdAndUpdate(currentUser.getId(), body);
+    }
+
+    @PostMapping("/me/avatar")
+    public String uploadExample(@AuthenticationPrincipal User currentUser, @RequestParam("avatar") MultipartFile body) throws IOException {
+        return userService.uploadPicture(currentUser.getId(), body);
+    }
+
+    @DeleteMapping("/me")
+    @ResponseStatus(HttpStatus.NO_CONTENT) // <-- 204 NO CONTENT
+    public void getProfile(@AuthenticationPrincipal User currentUser) {
+        userService.findByIdAndDelete(currentUser.getId());
+    }
+
     @PostMapping("")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public User postUsers(@RequestBody @Validated UserPostDTO body, BindingResult validation) {
         if (validation.hasErrors()) {
@@ -45,11 +70,13 @@ public class UserController {
     }
 
     @PostMapping("/{id}/avatar")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String uploadExample(@PathVariable long id, @RequestParam("avatar") MultipartFile body) throws IOException {
         return userService.uploadPicture(id, body);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public User getUserById(@PathVariable long id) {
         try {
             return userService.findById(id);
@@ -59,6 +86,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public User findByIdAndUpdate(@PathVariable long id, @RequestBody @Validated UserPutDTO body, BindingResult validation) {
         if (validation.hasErrors()) {
             throw new BadRequestException(validation.getAllErrors());
@@ -67,6 +95,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void findByIdAndDelete(@PathVariable int id) {
         try {
             userService.findByIdAndDelete(id);
