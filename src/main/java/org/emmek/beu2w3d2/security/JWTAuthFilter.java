@@ -33,7 +33,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
             throw new UnauthorizedException("Please insert a valid bearer token");
         } else {
             String token = authHeader.substring(7);
-            System.out.println("TOKEN -> " + token);
+//            System.out.println("TOKEN -> " + token);
             // 2. Verifico che il token non sia nè scaduto nè sia stato manipolato
             jwtTools.verifyToken(token);
 
