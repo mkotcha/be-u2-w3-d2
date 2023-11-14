@@ -1,6 +1,7 @@
 package org.emmek.beu2w3d2.services;
 
 import org.emmek.beu2w3d2.config.EmailSender;
+import org.emmek.beu2w3d2.entities.Role;
 import org.emmek.beu2w3d2.entities.User;
 import org.emmek.beu2w3d2.exception.BadRequestException;
 import org.emmek.beu2w3d2.exception.UnauthorizedException;
@@ -64,6 +65,7 @@ public class AuthService {
         user.setName(body.name());
         user.setSurname(body.surname());
         user.setEmail(body.email());
+        user.setRole(Role.USER);
         User savedUser = userRepository.save(user);
         emailSender.sendRegistrationEmail(savedUser);
         return savedUser;

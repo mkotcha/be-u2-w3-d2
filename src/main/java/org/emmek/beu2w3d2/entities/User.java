@@ -28,7 +28,7 @@ public class User implements UserDetails {
     @ToString.Exclude
     List<Device> devices;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private long id;
     @Column(unique = true)
